@@ -4,39 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ДОДАТИ FONT AWESOME -->
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <div id="carousel" class="carousel">
         <ul id="slides-container" class="slides">
-            <li class="slide active"></li>
-            <li class="slide"></li>
-            <li class="slide"></li>
-            <li class="slide"></li>
-            <li class="slide"></li>
+            <li class="slide active">SLIDE 1</li>
+            <li class="slide">SLIDE 2</li>
+            <li class="slide">SLIDE 3</li>
+            <li class="slide">SLIDE 4</li>
+            <li class="slide">SLIDE 5</li>
         </ul>
 
-        <div id="controls-container" class="controls">
-            <div id="pause-btn" class="control control-pause">Pause<i class="fas "></i></div>
-            <div id="next-btn" class="control-next">Next</div>
-            <div id="prev-btn" class="control control-prev">Previous</div>
-        </div>
-
-        <div class="indicator-container" class="indicator">
+        <div id="indicators-container" class="indicators">
             <div class="indicator active" data-slide-to="0"></div>
             <div class="indicator" data-slide-to="1"></div>
             <div class="indicator" data-slide-to="2"></div>
             <div class="indicator" data-slide-to="3"></div>
             <div class="indicator" data-slide-to="4"></div>
         </div>
+
+        <div id="controls-container" class="controls">
+            <div id="prev-btn" class="control control-prev"><i class="fas fa-angle-left"></i></div>
+            <div id="pause-btn" class="control control-pause"><i class="fas fa-pause-circle"></i></div>
+            <div id="next-btn" class="control control-next"><i class="fas fa-angle-right"></i></div>
+        </div>
     </div>
 
-    <script src="src/main.js"></script>
 
-    sc
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
