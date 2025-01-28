@@ -1,5 +1,13 @@
+:root {
+  --color-primary: #301207;
+  --color-secondary: #cebfa2;
+  --color-accent: #f0b41d;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  background-color: var(--color-primary);
 }
 
 .active {
@@ -18,11 +26,11 @@ these make the slideshow work
 
 .slides {
   position: relative;
-  height: 600px;
+  height: calc(100vh - 50px);
   padding: 0px;
   margin: 0px;
   list-style-type: none;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .slide {
@@ -33,7 +41,7 @@ these make the slideshow work
   height: 100%;
   opacity: 0;
   z-index: 1;
-  transition: opacity 1s;
+  transition: opacity 4s;
 }
 
 .active {
@@ -47,33 +55,80 @@ just for appearance; change whatever you want
 */
 
 .slide {
-  font-size: 40px;
-  padding: 40px;
   box-sizing: border-box;
-  background: #333;
-  color: #fff;
+  background: var(--color-primary);
+  font-family: "Oxanium", "Roboto", serif;
+  font-weight: 100;
 }
 
 .slide:nth-of-type(1) {
-  background: red;
+  background-size: cover;
+  background-image: url(../../src/img/slide-1.jpg);
 }
 
 .slide:nth-of-type(2) {
-  background: orange;
+  background-size: cover;
+  background-image: url(../../src/img/slide-2.jpg);
 }
 
 .slide:nth-of-type(3) {
-  background: green;
+  background-size: cover;
+  background-image: url(../../src/img/slide-3.jpg);
 }
 
 .slide:nth-of-type(4) {
-  background: blue;
+  background-size: cover;
+  background-image: url(../../src/img/slide-4.jpg);
 }
 
 .slide:nth-of-type(5) {
-  background: purple;
+  background-size: cover;
+  background-image: url(../../src/img/slide-5.jpg);
 }
 
+.slide__title {
+  display: inline-block;
+  font-size: 8rem;
+  padding: 20px 80px;
+  color: var(--color-accent);
+  font-family: "Monoton", serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: var(--color-primary);
+}
+
+.slide__text {
+  position: absolute;
+  z-index: 10;
+
+  font-family: "Oxanium", "Roboto", serif;
+  font-weight: 100;
+  width: 40%;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  padding: 40px 80px 40px 40px;
+  right: 0;
+  bottom: 120px;
+}
+
+.slide__action {
+  position: absolute;
+  z-index: 10;
+  font-weight: 700;
+  text-decoration: none;
+  width: 40%;
+  color: var(--color-primary);
+  background-color: var(--color-accent);
+  padding: 20px 80px 20px 40px;
+  right: 0;
+  bottom: 40px;
+  transition-duration: 0.3s;
+}
+
+.slide__action:hover {
+  text-decoration: 2px underline;
+  opacity: 0.8;
+}
 /* lesson follow up */
 
 .indicators,
@@ -85,18 +140,51 @@ just for appearance; change whatever you want
   margin-bottom: 20px;
 }
 
+.indicators {
+  position: absolute;
+  width: 100%;
+  margin: 0px;
+  bottom: 18px;
+  z-index: 10;
+}
+
 .control {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5em;
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 30px;
+  min-height: 30px;
   cursor: pointer;
   user-select: none;
-  border-radius: 6px;
-  background-color: #efefef;
+  border-radius: 50%;
+  border: 2px solid var(--color-secondary);
+  background-color: rgba(206, 191, 161, 0);
+  font-size: 1rem;
+}
+
+.control-prev {
+  position: absolute;
+  z-index: 10;
+  left: 8px;
+  bottom: 8px;
+}
+
+.control-next {
+  position: absolute;
+  z-index: 10;
+  right: 8px;
+  bottom: 8px;
+}
+
+.control-pause {
+  position: absolute;
+  z-index: 10;
+  bottom: 50vh;
+  min-width: 120px;
+  min-height: 120px;
   font-size: 2rem;
+  opacity: 0;
+  transition-duration: 0.5s;
 }
 
 .indicator {
@@ -104,21 +192,59 @@ just for appearance; change whatever you want
   justify-content: center;
   align-items: center;
   padding: 0.5em;
-  border-radius: 20px;
+  border-radius: 50%;
   max-width: 10px;
   max-height: 10px;
   cursor: pointer;
   user-select: none;
 
-  background-color: #efefef;
-  font-size: 2rem;
+  background-color: var(--color-secondary);
+  font-size: 0.75rem;
 }
 
 .control:hover {
-  background-color: #c0c0c0;
+  background-color: rgba(206, 191, 161, 0.2);
+}
+
+.control-pause:hover {
+  opacity: 1;
+  background-color: rgba(48, 18, 7, 0.8);
 }
 
 .indicator.active {
-  background-color: rgb(40, 178, 160);
-  color: #fff;
+  background-color: var(--color-accent);
+}
+
+.fas {
+  color: var(--color-secondary);
+}
+
+@media (max-width: 480px) {
+  .slide__title {
+    display: block;
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 20px 10px;
+  }
+
+  .slide__text,
+  .slide__action {
+    width: 60%;
+  }
+}
+
+@media (min-width: 480.1px) and (max-width: 768px) {
+  .slide__title {
+    font-size: 4rem;
+  }
+  .slide__text,
+  .slide__action {
+    width: 60%;
+  }
+}
+
+@media (min-width: 768.1px) and (max-width: 1024px) {
+  .slide__title {
+    font-size: 5.5rem;
+  }
 }

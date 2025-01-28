@@ -7,7 +7,7 @@ const prevBtn = container.querySelector('#prev-btn');
 const nextBtn = container.querySelector('#next-btn');
 
 const SLIDES_COUNT = slides.length;
-const TIMER_INTERVAL = 2000;
+const TIMER_INTERVAL = 4000;
 const CODE_ARROW_LEFT = 'ArrowLeft';
 const CODE_ARROW_RIGHT = 'ArrowRight';
 const CODE_SPACE = 'Space';
